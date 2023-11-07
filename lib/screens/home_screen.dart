@@ -51,7 +51,7 @@ class HomeScreen extends ConsumerWidget {
 
   ///
   void _startTimer() {
-    _timer = Timer.periodic(const Duration(milliseconds: 500), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
       _ref.read(appParamProvider.notifier).setCount(value: count++);
     });
   }
