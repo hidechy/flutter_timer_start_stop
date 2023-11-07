@@ -18,7 +18,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     _ref = ref;
 
-    var count = ref.watch(appParamProvider.select((value) => value.count));
+    var stateCount = ref.watch(appParamProvider.select((value) => value.count));
 
     return Scaffold(
       body: SafeArea(
@@ -26,7 +26,7 @@ class HomeScreen extends ConsumerWidget {
           children: [
             Text('HomeScreen'),
             SizedBox(height: 20),
-            Text(count.toString()),
+            Text(stateCount.toString()),
             SizedBox(height: 20),
             Row(
               children: [
