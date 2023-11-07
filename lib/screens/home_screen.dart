@@ -7,7 +7,6 @@ import '../state/app_param/app_param_notifier.dart';
 class HomeScreen extends ConsumerWidget {
   HomeScreen({super.key});
 
-  DateTime? _createTime;
   Timer? _timer;
   int count = 0;
 
@@ -24,23 +23,23 @@ class HomeScreen extends ConsumerWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Text('HomeScreen'),
-            SizedBox(height: 20),
+            const Text('HomeScreen'),
+            const SizedBox(height: 20),
             Text(stateCount.toString()),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               children: [
                 ElevatedButton(
                   onPressed: () {
                     _startTimer();
                   },
-                  child: Text('start'),
+                  child: const Text('start'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     _timer?.cancel();
                   },
-                  child: Text('stop'),
+                  child: const Text('stop'),
                 ),
               ],
             ),
@@ -52,8 +51,6 @@ class HomeScreen extends ConsumerWidget {
 
   ///
   void _startTimer() {
-    final createTime = DateTime.now().add(const Duration(seconds: 1));
-
     _timer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
       _ref.read(appParamProvider.notifier).setCount(value: count++);
     });
